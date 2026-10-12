@@ -1,0 +1,67 @@
+.about-card__copy {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.about-card .about-card__copy p {
+  font-size: clamp(0.9rem, 1.1vw, 1rem);
+  line-height: 1.45;
+}
+
+.about-card .about-card__copy p + p {
+  margin-top: 0;
+}
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin: 2rem 0 0;
+  border-top: 1px solid rgb(124 58 237 / 16%);
+  padding: 1.5rem 0 0;
+}
+
+.about-stat {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+}
+
+.about-stat__value {
+  color: var(--color-accent-soft);
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 0.95;
+}
+
+.about-stat__label {
+  color: var(--color-muted);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.about-stat__label--rtl {
+  font-size: 0.78rem;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+@media (max-width: 40rem) {
+  .about-stats {
+    gap: 0.75rem;
+  }
+
+  .about-stat__value {
+    font-size: clamp(2.75rem, 12vw, 3.5rem);
+  }
+}

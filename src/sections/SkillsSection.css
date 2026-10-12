@@ -1,0 +1,31 @@
+.client-feedback-section {
+  padding-block: clamp(4rem, 8vw, 6rem);
+}
+
+.client-feedback-section__content {
+  min-width: 0;
+}
+
+.client-feedback-section__heading {
+  max-width: 52rem;
+  opacity: 0;
+  transform: translateY(0.65rem);
+  transition: opacity 700ms ease, transform 800ms cubic-bezier(0.2, 0.75, 0.25, 1);
+}
+
+.client-feedback-section[data-visible="true"] .client-feedback-section__heading {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.client-feedback-section .section-title {
+  max-width: 50rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .client-feedback-section__heading {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
