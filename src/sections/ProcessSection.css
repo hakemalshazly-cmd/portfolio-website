@@ -10,8 +10,8 @@
   z-index: -1;
   inset: 0;
   background:
-    radial-gradient(ellipse 44% 36% at 78% 54%, rgb(124 58 237 / 8%), transparent 74%),
-    radial-gradient(ellipse 34% 28% at 12% 88%, rgb(88 28 135 / 6%), transparent 76%);
+    radial-gradient(ellipse 44% 36% at 78% 54%, rgb(232 91 8 / 8%), transparent 74%),
+    radial-gradient(ellipse 34% 28% at 12% 88%, rgb(168 59 11 / 6%), transparent 76%);
   content: "";
   pointer-events: none;
 }
@@ -66,12 +66,12 @@
 }
 
 .process-journey__route-base {
-  stroke: rgb(168 85 247 / 17%);
+  stroke: rgb(255 122 22 / 17%);
   stroke-width: 1.2;
 }
 
 .process-journey__route-draw {
-  filter: drop-shadow(0 0 5px rgb(168 85 247 / 27%));
+  filter: drop-shadow(0 0 5px rgb(255 122 22 / 27%));
   stroke: url(#process-route-gradient-desktop);
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
@@ -119,10 +119,10 @@
   width: 2.9rem;
   height: 2.9rem;
   place-items: center;
-  border: 1px solid rgb(168 85 247 / 34%);
+  border: 1px solid rgb(255 122 22 / 34%);
   border-radius: 50%;
   background: var(--color-surface);
-  box-shadow: 0 0 1.4rem rgb(124 58 237 / 9%);
+  box-shadow: 0 0 1.4rem rgb(232 91 8 / 9%);
   color: var(--color-accent-soft);
   font-family: var(--font-display);
   font-size: 0.92rem;
@@ -140,7 +140,7 @@
 .process-cinematic[data-visible="true"] .process-journey__number {
   opacity: 1;
   transform: scale(1);
-  box-shadow: 0 0 1.8rem rgb(124 58 237 / 22%);
+  box-shadow: 0 0 1.8rem rgb(232 91 8 / 22%);
 }
 
 .process-journey__copy {
@@ -152,7 +152,7 @@
 
 .process-journey__stage:hover .process-journey__copy {
   transform: translateY(-0.2rem);
-  border-color: rgb(168 85 247 / 50%);
+  border-color: rgb(255 122 22 / 50%);
 }
 
 .process-journey__copy h3 {

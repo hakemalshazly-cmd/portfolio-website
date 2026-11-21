@@ -7,7 +7,20 @@ type WorkVideo = {
   fileName: string
   title: string
   thumbnail: string
+  videasEmbedId: string
 }
+
+const videasEmbedIds = [
+  '01a1fd64-0feb-7579-bd27-525ff65ce890',
+  '01a1fd65-9c84-70fd-aa34-3bc218a544bd',
+  '01a1fc9d-50e7-70e3-ae9b-46e12f7bbaa6',
+  '01a1fd65-e317-7637-adca-e36efc919503',
+  '01a1fd66-6e47-77de-94a7-a780ec73948f',
+  '01a1fd66-9755-7120-93a7-13ff6f1754d2',
+  '01a1fd66-c694-7828-973b-72c376b569f1',
+  '01a1fd66-f15c-762f-a9a2-138a8bc431d9',
+  '01a1fd67-1da5-72e0-82b4-bcde26aa1f66',
+]
 
 const workVideos: WorkVideo[] = Array.from({ length: 9 }, (_, index) => {
   const number = String(index + 1).padStart(2, '0')
@@ -16,8 +29,31 @@ const workVideos: WorkVideo[] = Array.from({ length: 9 }, (_, index) => {
     fileName: `${index + 1}.mp4`,
     title: `Project ${number}`,
     thumbnail: `${import.meta.env.BASE_URL}assets/abdo/work/project-${number}.webp`,
+    videasEmbedId: videasEmbedIds[index],
   }
 })
+
+function VideasEmbed({ embedId }: { embedId: string }) {
+  const embedRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const embed = embedRef.current
+    if (!embed) return
+
+    const script = document.createElement('script')
+    script.src = 'https://app.videas.com/embed.js'
+    script.dataset.embed = embedId
+    script.dataset.aspectRatio = '1.7778'
+    script.async = true
+    embed.appendChild(script)
+
+    return () => {
+      embed.replaceChildren()
+    }
+  }, [embedId])
+
+  return <div className="videas-embed" ref={embedRef} />
+}
 
 export default function SelectedWorkSection() {
   const { locale } = usePreferences()
@@ -89,14 +125,7 @@ export default function SelectedWorkSection() {
         {selectedVideo && (
           <div className="project-modal__layout">
             <div className="project-modal__media">
-              <video
-                key={selectedVideo.fileName}
-                src={`${import.meta.env.BASE_URL}assets/abdo/work/${selectedVideo.fileName}`}
-                controls
-                playsInline
-                preload="metadata"
-                aria-label={selectedVideo.fileName}
-              />
+              <VideasEmbed embedId={selectedVideo.videasEmbedId} />
             </div>
             <div className="project-modal__details" dir={isArabic ? 'rtl' : 'ltr'}>
               <button
